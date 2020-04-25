@@ -12,11 +12,12 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect("/")
+            messages.info(request,'WELCOME')
+            return redirect('login')
 
         else:
             messages.info(request,'Invalid Credentials')
-            return redirect('/')    
+            return redirect('login')    
 
 
     else:
@@ -37,10 +38,10 @@ def register(request):
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username Taken')
-                return redirect('register')
+                return redirect('/')
             elif User.objects.filter(email=email).exists(): 
                 messages.info(request,'Email Taken')   
-                return redirect('register')
+                return redirect('/')
             else :   
 
                 user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
@@ -49,7 +50,7 @@ def register(request):
                 return redirect('login')
         else:
             messages.info(request,'password not matching')  
-            return redirect('register')  
+            return redirect('/')  
         
         return redirect('/')
     

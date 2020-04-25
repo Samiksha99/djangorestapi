@@ -14,18 +14,23 @@
   <body>
 <h2 class="head">Login </h2>
 
-<form action="/action_page.php" method="post">
+<form action="login" method="post">
+  {% csrf_token %}
  
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
         
     <button type="submit">Login</button>
-    
+    <div>
+      {% for message in messages %}
+      <h3> {{message}} </h3>
+      {% endfor %}
+    </div>
   </div>
 
 </form>
