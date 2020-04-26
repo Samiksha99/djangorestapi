@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from rest_framework import viewsets
+from .serializers import UserSerializer
 
 # Create your views here.
 def login(request):
@@ -57,3 +59,7 @@ def register(request):
     else:
 
         return render(request, 'register.html')
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer        
