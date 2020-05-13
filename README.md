@@ -3,19 +3,19 @@ Django rest api is created here.
 To check out enter url after installing the requirements
 http://127.0.0.1:8000/user/
 
-Requirements:
+**Requirements:**
 
-1.Python (3.5, 3.6, 3.7, 3.8)
+* Python (3.5, 3.6, 3.7, 3.8)
 
-2.Django (2.2, 3.0)
+* Django (2.2, 3.0)
 
 Highly recommend and only officially support the latest patch release of each Python and Django series.
 
-Installation:
+**Installation:**
 
 Install using pip...
 
-pip install djangorestframework
+> pip install djangorestframework
 
 Add 'rest_framework' to your INSTALLED_APPS setting.
 
@@ -26,4 +26,4 @@ INSTALLED_APPS = [
 
 Run Server:
 
-python manage.py runserver 
+> python manage.py runserver 
